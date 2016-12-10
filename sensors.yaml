@@ -1,0 +1,23 @@
+# sensor 1
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+# sensor 2
+- platform: systemmonitor
+  resources:
+    - type: disk_free
+      arg: /home
+    - type: memory_free
+    - type: processor_use
+    - type: last_boot
+
+# sensor 3
+- platform: darksky
+  api_key: !secret dark_api_key
+  monitored_conditions:
+    - summary
+    - precip_probability
+    - temperature

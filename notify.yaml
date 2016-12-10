@@ -1,0 +1,12 @@
+- platform: smtp
+  server: smtp.gmail.com
+  port: 587
+  sender: !secret home_assistant_pi_username
+  starttls: true
+  username: !secret home_assistant_pi_username
+  password: !secret home_assistant_pi_password
+  recipient: !secret recipient_username
+  
+#- platform: command_line
+#  name: omxplayer
+#  command: "omxplayer /usr/share/scratch/Media/Sounds/Effects/Bubbles.wav"

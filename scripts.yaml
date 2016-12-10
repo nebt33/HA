@@ -1,0 +1,1 @@
+alarm_triggered: !include scripts/alarm_triggered.yaml

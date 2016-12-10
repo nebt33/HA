@@ -1,0 +1,8 @@
+- alias: "Alarm Trigger"
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.alarm
+    from: "armed_away"
+    to: "disarmed"
+  action:
+    service: script.alarm_triggered

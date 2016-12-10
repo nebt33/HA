@@ -1,0 +1,70 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 38.6076
+  longitude: -90.5598
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 203
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Chicago
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+http:
+  api_password: !secret http_password
+  ssl_certificate: '/etc/letsencrypt/live/hadns.duckdns.org/fullchain.pem'
+  ssl_key: '/etc/letsencrypt/live/hadns.duckdns.org/privkey.pem'
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Recorder for database
+recorder:
+  purge_days: 30
+  db_url: sqlite:///home/hass/.homeassistant/home-assistant_v2.db
+
+####################################################
+#                                                  #
+#                     Includes                     #
+#                                                  #
+####################################################
+
+alarm_control_panel: !include alarm_control_panel.yaml
+automation: !include_dir_merge_list automation/
+device_tracker: !include device_trackers.yaml
+group: !include groups.yaml
+media_player: !include media_players.yaml
+notify: !include notify.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+
+mqtt:
+  broker: m13.cloudmqtt.com
+  port: 10774
+  client_id: home-assistant-1
+  keepalive: 60
+  username: ha
+  password: !secret ha_mqtt_password
+

@@ -1,0 +1,57 @@
+####VIEWS####
+default_view:
+ view: yes
+ entities:
+   - group.alarm_status
+   
+environment:
+  name: Environment
+  view: yes
+  entities:
+    - group.weather
+
+family:
+  name: Family
+  view: yes
+  entities:
+   - group.nathan
+   - group.ghillean
+
+stats:
+  name: Stats
+  view: yes
+  entities:
+    - group.speedtest
+    - group.pi_status
+
+####GROUPS####
+
+Alarm Status:
+   - alarm_control_panel.alarm
+    
+Ghillean:
+  - device_tracker.9c2a832f2ef7
+
+Media Players:
+  - media_player.bedroom
+  - media_player.livingroom
+
+Nathan:
+  - device_tracker.98f1707d142a
+
+PI Status:
+  - sensor.cpu_use
+  - sensor.ram_free
+  - sensor.disk_free_home
+  - sensor.last_boot
+
+Speedtest:
+  - sensor.speedtest_ping
+  - sensor.speedtest_download
+  - sensor.speedtest_upload
+  
+Weather:
+  - sun.sun
+  - sensor.dark_sky_summary
+  - sensor.dark_sky_precip_probability
+  - sensor.dark_sky_temperature

@@ -1,0 +1,4 @@
+- platform: tplink
+  host: 192.168.0.1
+  username: !secret admin_username
+  password: !secret admin_password
